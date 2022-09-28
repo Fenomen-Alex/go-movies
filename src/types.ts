@@ -7,9 +7,14 @@ export interface Movie {
   runtime: number;
   rating: number;
   mpaa_rating: string;
-  genres: Genres[];
+  genres: Genres[] | string[];
 }
 
 export interface Genres {
   [key: string]: string;
+}
+
+export type Genre = {
+  id: number;
+  genre_name: string;
 }
