@@ -29,13 +29,20 @@ const Genres = () => {
   return (
     <>
       <h2>Genres</h2>
-      <ul>
+      <div className="list-group">
         {genres.map((g) => (
-          <li key={g.id}>
-            <Link to={`genre/${g.id}`}>{g.genre_name}</Link>
-          </li>
+          <Link
+            key={g.id}
+            to={{
+              pathname: `genre/${g.id}`,
+              state: g.genre_name,
+            }}
+            className="list-group-item list-group-item-action"
+          >
+            {g.genre_name}
+          </Link>
         ))}
-      </ul>
+      </div>
     </>
   );
 };

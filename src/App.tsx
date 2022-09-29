@@ -7,6 +7,7 @@ import Admin from './components/Admin';
 import Home from './components/Home';
 import OneMovie from './components/OneMovie';
 import Genres from './components/Genres';
+import OneGenre from './components/OneGenre';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <div className="col-md-10">
             <Switch>
               <Route path="/movies/:id" component={OneMovie} />
+              <Route path="/genre/:id" component={OneGenre} />
 
               <Route path="/movies">
                 <Movies />

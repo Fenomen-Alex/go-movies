@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {RouteComponentProps} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {Movie} from '../types';
 
-const OneMovie = ({match: {params}}: RouteComponentProps) => {
+const OneMovie = () => {
   const [movie, setMovie] = useState<Movie>({
     description: '',
     genres: [],
@@ -16,11 +16,10 @@ const OneMovie = ({match: {params}}: RouteComponentProps) => {
   });
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const params = useParams();
 
   const fetchMovie = async () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const res = await fetch('http://localhost:4000/v1/movie/' + params.id);
+    const res = await fetch('http://localhost:4000/v1/movie/' + (params as Record<string, unknown>).id);
     if (res.status !== 200) {
       const err = new Error('Invalid status code ' + res.status);
       setError(err);
