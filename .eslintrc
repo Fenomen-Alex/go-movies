@@ -24,6 +24,12 @@
   },
   "rules": {
     "require-jsdoc" : 0,
-    "indent": 2
+    "indent": 2,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/ban-ts-comment": "off",
+    "max-len": [2,
+      {
+        "code": 120
+      }]
   }
 }
